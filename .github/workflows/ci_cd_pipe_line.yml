@@ -177,23 +177,12 @@ jobs:
       #          restore-keys: |
       #            ${{ runner.os }}-gradle-
 
-      - name: Build with Gradle to Create Release Build
-        run: ./gradlew assembleMageNativeRelease
-      - name: upload artifact to Firebase App Distribution
-        uses: wzieba/Firebase-Distribution-Github-Action@v1
-        with:
-          appId: ${{secrets.FIREBASE_APP_ID}}
-          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
-          groups: testers
-          file: ./app/MageNative/release/app-MageNative-release.apk
-
-
       - name: Build with Gradle to Create Debug Build
-        run: ./gradlew assembleMageNativeDebug
+        run: ./gradlew assembleDebug
       - name: upload artifact to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
           appId: ${{secrets.FIREBASE_APP_ID}}
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: testers
-          file: ./app/build/outputs/apk/MageNative/debug/app-MageNative-debug.apk
+          file: ./app/build/outputs/apk/debug/app-debug.apk
