@@ -9,7 +9,7 @@ env:
 
 on:
   push:
-    branches: [ "auto_mate_ci_cd" ]
+    branches: [ "master" ]
   workflow_dispatch:
 
 jobs:
