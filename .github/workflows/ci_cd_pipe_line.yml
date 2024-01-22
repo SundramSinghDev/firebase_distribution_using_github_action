@@ -67,7 +67,7 @@ jobs:
           path: ./app/build/reports/tests/testDebugUnitTest
 
   instrumentation-test:
-    runs-on: ubuntu-latest
+    runs-on: macos
     needs: [ unit-test ]
 
     steps:
